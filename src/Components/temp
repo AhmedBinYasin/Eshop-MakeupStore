@@ -1,0 +1,2 @@
+<Nevbar title={'Makeup Store'} nevBarProps={nevBarProps}></Nevbar>
+      <Home></Home>
