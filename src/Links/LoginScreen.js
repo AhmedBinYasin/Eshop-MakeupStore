@@ -3,7 +3,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 import Register from "./Register";
-function LoginScreen() {
+function LoginScreen(props) {
   let loginData = {
     Email: "",
     Pasword: "",
@@ -22,17 +22,13 @@ function LoginScreen() {
     loginData.Email = EmailInput;
     loginData.Pasword = PaswordInput;
 
-    /*axios
-      .post(http://localhost:5000/api/auth/Login`, loginData)
-      .then((response) => {
+    axios.post('http://localhost:5000/api/auth/Login', loginData).then((response) => {
         const responseData = response.data;
         setEmail("");
         setPasword("");
-        props.setRes(responseData);
-        props.getEmail(loginData.Email);
-        props.sethome();
+        props.setNevBarProps(responseData.user)
       })
-      .catch((err) => console.log(err));*/
+      .catch((err) => console.log(err));
   };
 
   const onClickInputEmailHandle = () => {
@@ -86,14 +82,14 @@ function LoginScreen() {
                   </label>
                 </div>
                 <div className="text-center text-lg-start mt-4 pt-2">
-                  <button
+                  <Link to="/"><button
                     type="button"
                     className="btn btn-primary btn-lg"
                     style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
                     onClick={onClickLoginHandle}
                   >
                     Login
-                  </button>
+                  </button></Link>
                   <p className="small fw-bold mt-2 pt-1 mb-0">
                     Don't have an account?{" "}
                     <Link to="/Links/Register" className="link-danger">

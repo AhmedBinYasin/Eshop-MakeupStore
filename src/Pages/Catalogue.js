@@ -1,35 +1,23 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 function Catalogue() {
-  let catalogueData = [
-    {
-      CatagoryName: "Lipstick",
-      ItemList: [
-        { Id: "001", Name: "Lipstick1", img: "/assets/lipstic.png" },
-        { Id: "002", Name: "Lipstick2", img: "/assets/lipstic.png" },
-        { Id: "003", Name: "Lipstick3", img: "/assets/lipstic.png" },
-      ],
-    },
-    {
-      CatagoryName: "Nail Polish",
-      ItemList: [
-        { Id: "011", Name: "Nail Polish", img: "/assets/lipstic.png" },
-        { Id: "012", Name: "Nail Polish2", img: "/assets/lipstic.png" },
-      ],
-    },
-    {
-      CatagoryName: "Powder",
-      ItemList: [
-        { Id: "021", Name: "Powder1", img: "/assets/lipstic.png" },
-        { Id: "022", Name: "Powder2", img: "/assets/lipstic.png" },
-        { Id: "023", Name: "Powder3", img: "/assets/lipstic.png" },
-        { Id: "024", Name: "Powder4", img: "/assets/lipstic.png" },
-      ],
-    },
-  ];
+
+  const [catalogueData,setCatalogueData] = useState([]);
+
+  let getCatalogueData=()=>{
+    axios.post(`http://localhost:5000/api/Cataloge/ViewCatalog`,{}).then(response => {
+       setCatalogueData(response.data)
+    }).catch(err => console.log(err))}
+
+  useEffect(() => {
+    getCatalogueData()
+  },[]);
+
+
   let addToCart=(event)=>{
     console.log(event)
   }

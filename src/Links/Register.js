@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from 'axios'
 
-function Register() {
+function Register(props) {
     let RegisterData={
         Name:"",
         Pasword:"",
@@ -42,12 +42,11 @@ function Register() {
         RegisterData.Name=NameInput
         RegisterData.Email=EmailInput
         RegisterData.Pasword=PaswordInput
-        //console.log(RegisterData)
-        /*axios.post(`http://localhost:5000/api/auth/CreateUser`,RegisterData).then(response => {
+        axios.post(`http://localhost:5000/api/auth/CreateUser`,RegisterData).then(response => {
           const responseData = response.data;
+          props.setNevBarProps(responseData)
          console.log(responseData)
-         set()
-      }).catch(err => console.log(err))*/
+      }).catch(err => console.log(err))
     }
 
     const onClickInputNameHandle=()=>{
@@ -113,8 +112,8 @@ function Register() {
                   </div>
 
                   <div className="text-center text-lg-start mt-4 pt-2">
-            <button type="button" className="btn btn-primary btn-lg"
-              style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}} onClick={onClickRegisterHandle}>Register</button>
+                  <Link to="/"><button type="button" className="btn btn-primary btn-lg"
+              style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}} onClick={onClickRegisterHandle}>Register</button></Link>
             <p className="small fw-bold mt-2 pt-1 mb-0">Already have an account? <Link to="/Links/LoginScreen"
                 className="link-danger" >Login</Link></p>
           </div>
