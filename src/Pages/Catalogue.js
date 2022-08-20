@@ -4,7 +4,7 @@ import "reactjs-popup/dist/index.css";
 import { Link } from "react-router-dom";
 import axios from 'axios'
 
-function Catalogue() {
+function Catalogue(props) {
 
   const [catalogueData,setCatalogueData] = useState([]);
 
@@ -18,8 +18,24 @@ function Catalogue() {
   },[]);
 
 
-  let addToCart=(event)=>{
-    console.log(event)
+  let addToCart=(event,CatagoryName)=>{
+    let toAddData={
+      Email : props.dataProps.Email,
+      CatagoryList: [
+        {CatagoryName:CatagoryName,
+          ItemList: [{
+            Id:event.Id,
+            Name:event.Name,
+            img:event.img,
+            quantity:"1"
+          }]
+        }
+
+      ]
+    }
+    axios.post(`http://localhost:5000/api/Cart/Add`,toAddData).then(response => {
+      console.log(response)
+    })
   }
   let catagoryList = catalogueData.map(function (catalogueData) {
     return (
@@ -29,7 +45,7 @@ function Catalogue() {
     );
   });
 
-  let ItemList = (ItemList) => {
+  let ItemList = (ItemList,CatagoryName) => {
     let List = ItemList.map(function (ItemList) {
       return (
         <div class="item">
@@ -45,8 +61,9 @@ function Catalogue() {
             }
             position="right center"
           >
-            <div>
-            <button type="button" class="btn btn-warning" style={{ marginLeft:'20%'}} onClick={() =>addToCart(ItemList)}>Add To Cart</button>
+            <div class="input-group input-group-sm mb-3">
+
+            <button type="button" class="btn btn-warning" style={{ marginLeft:'20%'}} onClick={() =>addToCart(ItemList,CatagoryName)}>Add To Cart</button>
             </div>
           </Popup>
         </div>
@@ -67,7 +84,7 @@ function Catalogue() {
           <div class="row">
             <div class="col-xs-12 col-md-12">
               <div class="item_container row">
-                {ItemList(catalogueData.ItemList)}
+                {ItemList(catalogueData.ItemList,catalogueData.CatagoryName)}
               </div>
             </div>
           </div>
