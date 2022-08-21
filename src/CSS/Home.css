@@ -1,53 +1,48 @@
-.HomePage{
-    width: 100%;
-    height:92vh;
-    background-image: url("/public/HomeBackground.jpg");
-    background-size: cover;
-
+.HomePage {
+  width: 100%;
+  height: 92vh;
+  background-image: url("/public/HomeBackground.jpg");
+  background-size: cover;
 }
 
-.Heading h3{
-    font-size:5vw;
-    color:black;
-    text-align: left;
+.Heading h3 {
+  font-size: 5vw;
+  color: black;
+  text-align: left;
 }
-.Heading h1{
-    font-size:15vw;
-    color: black;
-    text-align: left;
+.Heading h1 {
+  font-size: 15vw;
+  color: black;
+  text-align: left;
 }
-.Heading h2{
-    font-size:10vw;
-    color:gold;
+.Heading h2 {
+  font-size: 10vw;
+  color: gold;
 }
-.ButtonContainer{
-    margin-top: -3vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.ButtonContainer {
+  margin-top: -3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .ButtonContainer .btn {
-    color: black;
-    background-color: crimson;
-
+  color: black;
+  background-color: crimson;
 }
 .ButtonContainer p {
-    color:yellowgreen;
+  color: yellowgreen;
+  font-size: 3vw;
+  margin-bottom: 5vw;
+}
+@media screen and (max-width: 767px) {
+  .Heading > h1 {
+    font-size: 10vw;
+  }
+  .Heading > h2 {
+    font-size: 7vw;
+  }
+  .Heading > h3 {
     font-size: 3vw;
-    margin-bottom: 5vw;
-    
+  }
 }
-@media screen and (max-width:767px) {
-    .Heading > h1{
-        font-size: 10vw;
-    }
-    .Heading > h2{
-        font-size: 7vw;
-    }
-    .Heading > h3{
-        font-size: 3vw;
-    }
-    
-}
-

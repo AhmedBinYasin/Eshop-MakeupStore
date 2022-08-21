@@ -1,125 +1,271 @@
-
-
-.CataloguePage{
-	background-color: #4BC1DD;
+.CataloguePage {
+  background-color: #4bc1dd;
 }
 
-.CataloguePage body{ font-family: Verdana, Arial, sans-serif; background: #4BC1DD; padding-top: 30px; padding-bottom: 30px; font-size: 1.5em;
-		overflow-x: hidden; }
-		
-.CataloguePage h1, .CataloguePage h2, .CataloguePage h3, .CataloguePage h4, .CataloguePage h5, .CataloguePage h6 { font-family: Verdana, Arial, sans-serif; }
-.CataloguePage h3 { margin-bottom: 15px; }
-
-.CataloguePage a:hover { text-decoration: none; color: #CC0000; }
-
-.CataloguePage header .container { border-top-left-radius: 25px; border-top-right-radius: 25px; }
-
-.CataloguePage footer.container { padding-right: 0px; padding-left: 0px; }
-.CataloguePage footer p { margin: 0 auto; text-align: center; color: white; }
-.CataloguePage footer a { color: #FFFFFF; }
-
-.CataloguePage form {	margin-top: 30px; }
-.CataloguePage hr { border-top: 1px solid #96BA5A; }
-.CataloguePage img { max-width: none; }
-.CataloguePage footer { padding: 0px; font-size: 12px; }
-.CataloguePage iframe, object, embed {	width: 100%; border: none; margin-bottom: 20px; }
-.CataloguePage section.row{ margin-bottom: 20px; }
-.CataloguePage ul.sidebar_menu { padding: 4px 0px; }
-
-.CataloguePage .logo { padding-top: 15px;color:blue; }
-.CataloguePage .container{ max-width: 980px; margin: 0 auto; background:whitesmoke; }
-.CataloguePage .thumbnail { display: inline-block;	-webkit-transition: none; transition: none; }
-
-.CataloguePage .item { margin-bottom: 18px; max-width: 180px; width: 160px; }
-.CataloguePage .item img {	width: 140px; height: 140px; margin: 5px; }
-.CataloguePage .item p { text-align: center; }
-.CataloguePage .item_container { margin: 0 auto; }
-
-
-.CataloguePage #home h3{ margin-left: 20px; }
-.CataloguePage #home .btn { margin-left: 20px; }
-
-.CataloguePage .btn-primary:hover, .CataloguePage .btn-primary:focus, .CataloguePage .btn-primary:active {
-	color: #ffffff;
-	background-color: #83AF39;
-	border-color: #A1C565;
+.CataloguePage body {
+  font-family: Verdana, Arial, sans-serif;
+  background: #4bc1dd;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 1.5em;
+  overflow-x: hidden;
 }
 
-.CataloguePage .footer_item { margin-bottom: 15px; }
-.CataloguePage .footer_item img { width: 240px; height: 200px; }
-
-.CataloguePage .section_box { 
-	border: 1px solid #CCCCCC; 
-	padding: 10px; 
-	background: #F6F6F6; 
-	width: 273px; 
-	min-height: 230px; 
-	text-align: left; 
+.CataloguePage h1,
+.CataloguePage h2,
+.CataloguePage h3,
+.CataloguePage h4,
+.CataloguePage h5,
+.CataloguePage h6 {
+  font-family: Verdana, Arial, sans-serif;
 }
 
-.CataloguePage .section_box p, .CataloguePage .section_box li {
-	font-size: 1.2rem;
+.CataloguePage h3 {
+  margin-bottom: 15px;
 }
 
-.CataloguePage .preview_footer_container { margin: 0 auto; }
+.CataloguePage a:hover {
+  text-decoration: none;
+  color: #cc0000;
+}
 
-.CataloguePage #preview {	width: 90%;	max-width: 900px; margin: 0 auto; margin-top: 20px; }
-.CataloguePage #preview h3 { text-align: center; margin-bottom: 20px; }
+.CataloguePage header .container {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
 
-.CataloguePage #img_preview img { margin: 0 auto; margin-bottom: 10px;	background-color: white; border: 1px solid #ddd; border-radius: 4px; padding: 4px; }
-.CataloguePage #img_preview p { text-align: center; }
+.CataloguePage footer.container {
+  padding-right: 0px;
+  padding-left: 0px;
+}
 
-.CataloguePage .sidebar_menu li { list-style: none; margin: 5px 0px; }
-.CataloguePage #sidebar { margin-top: 30px; }
+.CataloguePage footer p {
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
 
-.CataloguePage .social_buttons { padding: 10px; text-align: center; }
-.CataloguePage .float_r { float: right }
-.CataloguePage .hideOverflow { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
-.CataloguePage .credit { padding-bottom: 15px;	padding-top: 15px; background-color: #96BA5A; }
-.CataloguePage .btn-primary { color: #ffffff; background-color: #96BA5A; border-color: #A8CE6A; }
+.CataloguePage footer a {
+  color: #ffffff;
+}
+
+.CataloguePage form {
+  margin-top: 30px;
+}
+
+.CataloguePage hr {
+  border-top: 1px solid #96ba5a;
+}
+
+.CataloguePage img {
+  max-width: none;
+}
+
+.CataloguePage footer {
+  padding: 0px;
+  font-size: 12px;
+}
+
+.CataloguePage iframe,
+object,
+embed {
+  width: 100%;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.CataloguePage section.row {
+  margin-bottom: 20px;
+}
+
+.CataloguePage ul.sidebar_menu {
+  padding: 4px 0px;
+}
+
+.CataloguePage .logo {
+  padding-top: 15px;
+  color: blue;
+}
+
+.CataloguePage .container {
+  max-width: 980px;
+  margin: 0 auto;
+  background: whitesmoke;
+}
+
+.CataloguePage .thumbnail {
+  display: inline-block;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.CataloguePage .item {
+  margin-bottom: 18px;
+  max-width: 180px;
+  width: 160px;
+}
+
+.CataloguePage .item img {
+  width: 140px;
+  height: 140px;
+  margin: 5px;
+}
+
+.CataloguePage .item p {
+  text-align: center;
+}
+
+.CataloguePage .item_container {
+  margin: 0 auto;
+}
+
+.CataloguePage #home h3 {
+  margin-left: 20px;
+}
+
+.CataloguePage #home .btn {
+  margin-left: 20px;
+}
+
+.CataloguePage .btn-primary:hover,
+.CataloguePage .btn-primary:focus,
+.CataloguePage .btn-primary:active {
+  color: #ffffff;
+  background-color: #83af39;
+  border-color: #a1c565;
+}
+
+.CataloguePage .footer_item {
+  margin-bottom: 15px;
+}
+
+.CataloguePage .footer_item img {
+  width: 240px;
+  height: 200px;
+}
+
+.CataloguePage .section_box {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  background: #f6f6f6;
+  width: 273px;
+  min-height: 230px;
+  text-align: left;
+}
+
+.CataloguePage .section_box p,
+.CataloguePage .section_box li {
+  font-size: 1.2rem;
+}
+
+.CataloguePage .preview_footer_container {
+  margin: 0 auto;
+}
+
+.CataloguePage #preview {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.CataloguePage #preview h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.CataloguePage #img_preview img {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.CataloguePage #img_preview p {
+  text-align: center;
+}
+
+.CataloguePage .sidebar_menu li {
+  list-style: none;
+  margin: 5px 0px;
+}
+
+.CataloguePage #sidebar {
+  margin-top: 30px;
+}
+
+.CataloguePage .social_buttons {
+  padding: 10px;
+  text-align: center;
+}
+
+.CataloguePage .float_r {
+  float: right;
+}
+
+.CataloguePage .hideOverflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.CataloguePage .credit {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  background-color: #96ba5a;
+}
+
+.CataloguePage .btn-primary {
+  color: #ffffff;
+  background-color: #96ba5a;
+  border-color: #a8ce6a;
+}
 
 @media (max-width: 767px) {
-	.CataloguePage .sidebar-nav { padding-left: 15px; padding-right: 15px;	}
+  .CataloguePage .sidebar-nav {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .CataloguePage .icon-button {
-	background-color: white;
-	border-radius: 3.6rem;
-	cursor: pointer;
-	display: inline-block;
-	font-size: 2.0rem;
-	height: 3.6rem;
-	line-height: 3.6rem;
-	margin: 0 5px;
-	position: relative;
-	text-align: center;
-	-webkit-user-select: none;
-	   -moz-user-select: none;
-	    -ms-user-select: none;
-	        user-select: none;
-	width: 3.6rem;
+  background-color: white;
+  border-radius: 3.6rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 2rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 3.6rem;
 }
-
 
 .CataloguePage .icon-button span {
-	border-radius: 0;
-	display: block;
-	height: 0;
-	left: 50%;
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	-webkit-transition: all 0.3s;
-	   -moz-transition: all 0.3s;
-	     -o-transition: all 0.3s;
-	        transition: all 0.3s;
-	width: 0;
+  border-radius: 0;
+  display: block;
+  height: 0;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 0;
 }
+
 .CataloguePage .icon-button:hover span {
-	width: 3.6rem;
-	height: 3.6rem;
-	border-radius: 3.6rem;
-	margin: -1.8rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 3.6rem;
+  margin: -1.8rem;
 }
-
-

@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Home(props) {
   return (
     <div>
-      <div className="HomePage" style={{ size: "100%" }}>
+      <div className="HomePage" style={{ size: '100%' }}>
         <div className="container">
           <div className="row">
             <div className="Heading col-md-8">
@@ -14,15 +14,20 @@ function Home(props) {
             </div>
             <div className="ButtonContainer col-md-4 col-sm-12">
               <p>Welcome to The MakeUP Store.</p>
-              {props.homePageProps.Role === "unSigned" && (
+              {props.homePageProps.Role === 'unSigned' && (
+                <Link
+                  class="btn btn-primary my-2"
+                  to="/Links/LoginScreen"
+                  role="button"
+                >
+                  Go to Login
+                </Link>
+              )}
               <Link
-                class="btn btn-primary my-2"
-                to="/Links/LoginScreen"
+                className="btn btn-primary"
+                to="/Pages/Catalogue"
                 role="button"
               >
-                Go to Login
-              </Link>)}
-              <Link className="btn btn-primary" to="/Pages/Catalogue" role="button">
                 Check Catalogue
               </Link>
             </div>
@@ -30,7 +35,7 @@ function Home(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

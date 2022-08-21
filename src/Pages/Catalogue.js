@@ -1,51 +1,57 @@
-import React, { useEffect,useState } from "react";
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function Catalogue(props) {
+  const [catalogueData, setCatalogueData] = useState([])
 
-  const [catalogueData,setCatalogueData] = useState([]);
-
-  let getCatalogueData=()=>{
-    axios.post(`http://localhost:5000/api/Cataloge/ViewCatalog`,{}).then(response => {
-       setCatalogueData(response.data)
-    }).catch(err => console.log(err))}
+  let getCatalogueData = () => {
+    axios
+      .post(`http://localhost:5000/api/Cataloge/ViewCatalog`, {})
+      .then((response) => {
+        setCatalogueData(response.data)
+      })
+      .catch((err) => console.log(err))
+  }
 
   useEffect(() => {
     getCatalogueData()
-  },[]);
+  }, [])
 
-
-  let addToCart=(event,CatagoryName)=>{
-    let toAddData={
-      Email : props.dataProps.Email,
+  let addToCart = (event, CatagoryName) => {
+    let toAddData = {
+      Email: props.dataProps.Email,
       CatagoryList: [
-        {CatagoryName:CatagoryName,
-          ItemList: [{
-            Id:event.Id,
-            Name:event.Name,
-            img:event.img,
-            quantity:"1"
-          }]
-        }
-
-      ]
+        {
+          CatagoryName: CatagoryName,
+          ItemList: [
+            {
+              Id: event.Id,
+              Name: event.Name,
+              img: event.img,
+              quantity: '1',
+            },
+          ],
+        },
+      ],
     }
-    axios.post(`http://localhost:5000/api/Cart/Add`,toAddData).then(response => {
-      console.log(response)
-    })
+    axios
+      .post(`http://localhost:5000/api/Cart/Add`, toAddData)
+      .then((response) => {
+        console.log(response)
+      })
   }
   let catagoryList = catalogueData.map(function (catalogueData) {
     return (
       <li>
         <Link to="">{catalogueData.CatagoryName}</Link>
       </li>
-    );
-  });
+    )
+  })
 
-  let ItemList = (ItemList,CatagoryName) => {
+  let ItemList = (ItemList, CatagoryName) => {
     let List = ItemList.map(function (ItemList) {
       return (
         <div class="item">
@@ -62,15 +68,21 @@ function Catalogue(props) {
             position="right center"
           >
             <div class="input-group input-group-sm mb-3">
-
-            <button type="button" class="btn btn-warning" style={{ marginLeft:'20%'}} onClick={() =>addToCart(ItemList,CatagoryName)}>Add To Cart</button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                style={{ marginLeft: '20%' }}
+                onClick={() => addToCart(ItemList, CatagoryName)}
+              >
+                Add To Cart
+              </button>
             </div>
           </Popup>
         </div>
-      );
-    });
-    return List;
-  };
+      )
+    })
+    return List
+  }
 
   let CatalogueList = catalogueData.map(function (catalogueData) {
     return (
@@ -84,14 +96,14 @@ function Catalogue(props) {
           <div class="row">
             <div class="col-xs-12 col-md-12">
               <div class="item_container row">
-                {ItemList(catalogueData.ItemList,catalogueData.CatagoryName)}
+                {ItemList(catalogueData.ItemList, catalogueData.CatagoryName)}
               </div>
             </div>
           </div>
         </section>
       </>
-    );
-  });
+    )
+  })
 
   return (
     <div className="CataloguePage">
@@ -141,7 +153,7 @@ function Catalogue(props) {
         </div>
       </footer>
     </div>
-  );
+  )
 }
 
-export default Catalogue;
+export default Catalogue

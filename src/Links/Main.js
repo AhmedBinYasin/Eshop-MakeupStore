@@ -1,16 +1,18 @@
-import React from 'react'
-import Home from '../Pages/Home';
-import Nevbar from './../Components/Nevbar';
+import React from "react";
+import AdminUserControl from "../Pages/AdminUserControl";
+import Home from "../Pages/Home";
 
 function Main(props) {
- 
-      let homePageProps = props.dataProps
-  return (
-    <div>
-      
-      <Home homePageProps={homePageProps}/>
-    </div>
-  )
+    let homePageProps = props.dataProps;
+    return (
+        <div> {" "}
+            {
+            (props.dataProps.Role === "unSigned" || props.dataProps.Role === "user") && (
+                <Home homePageProps={homePageProps}/>
+            )
+        }
+            {props.dataProps.Role === "admin" && (<AdminUserControl></AdminUserControl>)} </div>
+    );
 }
 
-export default Main
+export default Main;
