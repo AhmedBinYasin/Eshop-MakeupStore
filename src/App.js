@@ -12,10 +12,12 @@ import Catalogue from './Pages/Catalogue';
 import Cart from './Pages/Cart';
 import Nevbar from './Components/Nevbar';
 import { useState } from 'react';
+import AdminCalalogeControl from './Pages/AdminCalalogeControl';
+import AdminOrderControl from './Pages/AdminOrderControl';
 function App() {
   const [nevBarProps,setNevBarProps]=useState({
     Name: "ahmed",
-    Role: "unsigned",
+    Role: "admin",
     Email:"ahmed116046@gmail.com"
   })
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="/Pages/Cart" element={<Cart dataProps={nevBarProps}/>}/>
           <Route path="/Pages/Catalogue" element={<Catalogue dataProps={nevBarProps}/>}/>
           <Route path="/" element={<Main dataProps={nevBarProps}/>}/>
+          <Route path="/AdminCalalogeControl" element={<AdminCalalogeControl dataProps={nevBarProps}/>}/>
+          <Route path="/AdminOrderControl" element={<AdminOrderControl dataProps={nevBarProps}/>}/>
             
           
         </Routes>

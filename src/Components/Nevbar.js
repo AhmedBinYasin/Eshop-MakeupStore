@@ -41,7 +41,24 @@ const nevbarUser = (props) => {
                                 </li>
                             </>
                         )
-                    } </ul>
+                    }
+                    {
+                        (props.nevBarProps.Role === "admin") && (
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" aria-current="page" to="/AdminCalalogeControl">
+                                        Catalogue
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" aria-current="page" to="/AdminOrderControl">
+                                        Orders
+                                    </Link>
+                                </li>
+                            </>
+                        )
+                    }
+                     </ul>
                     {
                     props.nevBarProps.Role === "unSigned" && (
                         <div className="col-md-3">
