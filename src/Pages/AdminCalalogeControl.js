@@ -59,17 +59,15 @@ function AdminCalalogeControl() {
   const ItemImageOnChangeHandeler = (event) => {
     setItemImage(event.target.files[0])
     let name = ItemImage.name
-    console.log(name)
+
     let idxDot = name.lastIndexOf('.') + 1
-    console.log(name)
+
     var extFile = name.substr(idxDot, name.length).toLowerCase()
     if (extFile !== 'png') {
       alert('Only jpg/jpeg and png files are allowed!')
       setItemImage('')
     }
-    console.log(ItemImage)
   }
-  
 
   let getCatalogeData = () => {
     axios
@@ -84,20 +82,19 @@ function AdminCalalogeControl() {
     getCatalogeData()
   }, [])
 
-  const AddItemOnClickHandeler=async(e)=>{
+  const AddItemOnClickHandeler = async (e) => {
     e.preventDefault()
-    const formData = new FormData();
-    formData.append('Name',ItemName)
-    formData.append('Category',ItemCatagory)
-    formData.append('Price',ItemPrice)
-    formData.append('image',ItemImage)
-    await axios.post("http://localhost:5000/api/Cataloge/AddItem", formData)
-    setItemImage("")
-    setItemPrice("")
-    setItemCatagory("")
-    setItemName("")
+    const formData = new FormData()
+    formData.append('Name', ItemName)
+    formData.append('Category', ItemCatagory)
+    formData.append('Price', ItemPrice)
+    formData.append('image', ItemImage)
+    await axios.post('http://localhost:5000/api/Cataloge/AddItem', formData)
+    setItemImage('')
+    setItemPrice('')
+    setItemCatagory('')
+    setItemName('')
     getCatalogeData()
-
   }
 
   const deleteHandler = (Id, cat) => {
@@ -238,7 +235,7 @@ function AdminCalalogeControl() {
                               class="form-control"
                               id="lastName"
                               placeholder=""
-                              min="0" 
+                              min="0"
                               data-bind="value:replyNumber"
                               value={ItemPrice}
                               required=""
@@ -266,7 +263,7 @@ function AdminCalalogeControl() {
                         <div class="col-md-12 mb-4">
                           <button
                             class="btn btn-primary btn-lg btn-block col-md-12"
-                            onClick={(e)=>AddItemOnClickHandeler(e)}
+                            onClick={(e) => AddItemOnClickHandeler(e)}
                           >
                             Add to Catalog
                           </button>

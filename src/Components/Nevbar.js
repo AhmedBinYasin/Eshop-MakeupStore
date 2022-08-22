@@ -93,14 +93,18 @@ const nevbarUser = (props) => {
                   </h5>
                 </div>
               }
-              position="right bottom"
+              position="bottom"
             >
               <Link to="/Links/LoginScreen">
                 <button
                   type="button"
                   class="btn btn-success col-md-12"
                   onClick={() => {
-                    props.setNevBarProps({ Name: '', Role: 'unSigned', Email: '' })
+                    props.setNevBarProps({
+                      Name: '',
+                      Role: 'unSigned',
+                      Email: '',
+                    })
                   }}
                 >
                   SignOut
@@ -125,7 +129,11 @@ const nevbarUser = (props) => {
                   type="button"
                   class="btn btn-success col-md-12"
                   onClick={() => {
-                    props.setNevBarProps({ Name: '', Role: 'unSigned', Email: '' })
+                    props.setNevBarProps({
+                      Name: '',
+                      Role: 'unSigned',
+                      Email: '',
+                    })
                   }}
                 >
                   SignOut

@@ -40,9 +40,7 @@ function Catalogue(props) {
     }
     axios
       .post(`http://localhost:5000/api/Cart/Add`, toAddData)
-      .then((response) => {
-        console.log(response)
-      })
+      .then((response) => {})
   }
   let catagoryList = catalogueData.map(function (catalogueData) {
     return (
@@ -64,7 +62,7 @@ function Catalogue(props) {
                   alt={ItemList.Name}
                 />
                 <p>{ItemList.Name}</p>
-                <p>{"RS "+ItemList.Price}</p>
+                <p>{'RS ' + ItemList.Price}</p>
               </Link>
             }
             position="right center"

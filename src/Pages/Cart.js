@@ -42,7 +42,7 @@ function Cart(props) {
           setEmpty(0)
         } else {
           setEmpty(1)
-          console.log('1')
+
           setCatalogueData(response.data)
         }
       })
@@ -86,12 +86,13 @@ function Cart(props) {
     axios
       .post(`http://localhost:5000/api/Cart/Remove`, toRemoveData)
       .then((response) => {
-        console.log(response)
         getCartData()
       })
   }
 
-  const totalPriceHandler=(Price,quantity)=> {TotalPrice=TotalPrice+(Number(Price)*Number(quantity))}
+  const totalPriceHandler = (Price, quantity) => {
+    TotalPrice = TotalPrice + Number(Price) * Number(quantity)
+  }
 
   let placeOrder = (e) => {
     e.preventDefault()
@@ -102,7 +103,10 @@ function Cart(props) {
           Id: catalogueData.CatagoryList[i].ItemList[j].Id,
           Name: catalogueData.CatagoryList[i].ItemList[j].Name,
           Price: catalogueData.CatagoryList[i].ItemList[j].Price,
-          TotalPrice:String(Number(catalogueData.CatagoryList[i].ItemList[j].Price)*Number(catalogueData.CatagoryList[i].ItemList[j].quantity)),
+          TotalPrice: String(
+            Number(catalogueData.CatagoryList[i].ItemList[j].Price) *
+              Number(catalogueData.CatagoryList[i].ItemList[j].quantity),
+          ),
           quantity: catalogueData.CatagoryList[i].ItemList[j].quantity,
         })
       }
@@ -113,7 +117,7 @@ function Cart(props) {
         Name: billFName + billLName,
         Address: billaddress,
         Zip: billzip,
-        OrderPrice: String(TotalPrice)
+        OrderPrice: String(TotalPrice),
       },
       ItemList: itemList,
     }
@@ -136,8 +140,11 @@ function Cart(props) {
                   alt={ItemList.Name}
                 />
                 <p>{ItemList.Name}</p>
-                <p>{"RS "+String(Number(ItemList.Price)*Number(ItemList.quantity))}</p>
-                {totalPriceHandler(ItemList.Price,ItemList.quantity)}
+                <p>
+                  {'RS ' +
+                    String(Number(ItemList.Price) * Number(ItemList.quantity))}
+                </p>
+                {totalPriceHandler(ItemList.Price, ItemList.quantity)}
                 <p>Quantity : {ItemList.quantity}</p>
               </Link>
             }
@@ -191,7 +198,7 @@ function Cart(props) {
           </div>
         </div>
       </header>
-      {console.log(Empty)}
+
       {Empty == 0 ? (
         <h4 style={{ textAlign: 'center' }}>The Cart is Empty</h4>
       ) : (
@@ -213,7 +220,7 @@ function Cart(props) {
             <button
               type="button"
               class="btn btn-success"
-              style={{ marginLeft: '5vw' }}
+              style={{ marginLeft: '44vw' }}
             >
               Proceed to checkout
             </button>
@@ -225,7 +232,7 @@ function Cart(props) {
               <div class="row">
                 <div class="col-md-8 order-md-1">
                   <h4 class="mb-3">Billing address</h4>
-                  <form class="needs-validation was-validated">
+                  <form class="needs-validation ">
                     <div class="row">
                       <div class="col-md-6 mb-3">
                         <label for="firstName">First name</label>

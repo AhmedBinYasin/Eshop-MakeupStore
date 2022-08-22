@@ -1,9 +1,9 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 function AdminOrderControl() {
-  const [OrdersData, setOrdersData]= useState([
+  const [OrdersData, setOrdersData] = useState([
     {
       Email: 'a@b.c',
       Billing: {
@@ -27,10 +27,10 @@ function AdminOrderControl() {
   ])
 
   let getOrderData = () => {
-    axios.post(`http://localhost:5000/api/Cart/ViewOrders`, {})
+    axios
+      .post(`http://localhost:5000/api/Cart/ViewOrders`, {})
       .then((response) => {
         setOrdersData(response.data)
-        console.log(OrdersData)
       })
       .catch((err) => console.log(err))
   }
@@ -158,7 +158,8 @@ function AdminOrderControl() {
                     <div class="d-block my-3">
                       <div class="custom-control custom-radio">
                         <label class="custom-control-label" for="credit">
-                          Cash on Delivery  , Total Price : Rs {Order.Billing.OrderPrice}
+                          Cash on Delivery , Total Price : Rs{' '}
+                          {Order.Billing.OrderPrice}
                         </label>
                       </div>
                     </div>
@@ -168,46 +169,61 @@ function AdminOrderControl() {
               </div>
             </div>
             <div class="container" id="home">
-            <div class="row row-offcanvas row-offcanvas-left">
-              <div class="col col-xs-12 col-sm-12">
-                <div className="container">
-                  <div className="row" style={{ backgroundColor: 'silver' }}>
-                    <div
-                      className="col-sm"
-                      style={{ border: '2px solid black', textAlign: 'center' }}
-                    >
-                      id
-                    </div>
-                    <div
-                      className="col-sm"
-                      style={{ border: '2px solid black', textAlign: 'center' }}
-                    >
-                      Name
-                    </div>
-                    <div
-                      className="col-sm"
-                      style={{ border: '2px solid black', textAlign: 'center' }}
-                    >
-                      Price
-                    </div>
-                    <div
-                      className="col-sm"
-                      style={{ border: '2px solid black', textAlign: 'center' }}
-                    >
-                      Quantity
-                    </div>
-                    <div
-                      className="col-sm"
-                      style={{ border: '2px solid black', textAlign: 'center' }}
-                    >
-                      TotalPrice
+              <div class="row row-offcanvas row-offcanvas-left">
+                <div class="col col-xs-12 col-sm-12">
+                  <div className="container">
+                    <div className="row" style={{ backgroundColor: 'silver' }}>
+                      <div
+                        className="col-sm"
+                        style={{
+                          border: '2px solid black',
+                          textAlign: 'center',
+                        }}
+                      >
+                        id
+                      </div>
+                      <div
+                        className="col-sm"
+                        style={{
+                          border: '2px solid black',
+                          textAlign: 'center',
+                        }}
+                      >
+                        Name
+                      </div>
+                      <div
+                        className="col-sm"
+                        style={{
+                          border: '2px solid black',
+                          textAlign: 'center',
+                        }}
+                      >
+                        Price
+                      </div>
+                      <div
+                        className="col-sm"
+                        style={{
+                          border: '2px solid black',
+                          textAlign: 'center',
+                        }}
+                      >
+                        Quantity
+                      </div>
+                      <div
+                        className="col-sm"
+                        style={{
+                          border: '2px solid black',
+                          textAlign: 'center',
+                        }}
+                      >
+                        TotalPrice
+                      </div>
                     </div>
                   </div>
+                  {itemList(Order.ItemList)}
                 </div>
-                {itemList(Order.ItemList)}
               </div>
             </div>
-          </div>
           </div>
         </>
       )
