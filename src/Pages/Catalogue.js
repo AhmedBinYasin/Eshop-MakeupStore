@@ -30,6 +30,7 @@ function Catalogue(props) {
             {
               Id: event.Id,
               Name: event.Name,
+              Price: event.Price,
               img: event.img,
               quantity: '1',
             },
@@ -63,6 +64,7 @@ function Catalogue(props) {
                   alt={ItemList.Name}
                 />
                 <p>{ItemList.Name}</p>
+                <p>{"RS "+ItemList.Price}</p>
               </Link>
             }
             position="right center"

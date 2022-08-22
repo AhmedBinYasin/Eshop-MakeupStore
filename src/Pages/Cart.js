@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function Cart(props) {
+  let TotalPrice = 0
   const [Empty, setEmpty] = useState(0)
   const [billFName, setbillFName] = useState('')
   const [billLName, setbillLName] = useState('')
@@ -74,6 +75,7 @@ function Cart(props) {
             {
               Id: event.Id,
               Name: event.Name,
+              Price: event.Price,
               img: event.img,
               quantity: '1',
             },
@@ -89,6 +91,8 @@ function Cart(props) {
       })
   }
 
+  const totalPriceHandler=(Price,quantity)=> {TotalPrice=TotalPrice+(Number(Price)*Number(quantity))}
+
   let placeOrder = (e) => {
     e.preventDefault()
     let itemList = []
@@ -97,6 +101,8 @@ function Cart(props) {
         itemList.push({
           Id: catalogueData.CatagoryList[i].ItemList[j].Id,
           Name: catalogueData.CatagoryList[i].ItemList[j].Name,
+          Price: catalogueData.CatagoryList[i].ItemList[j].Price,
+          TotalPrice:String(Number(catalogueData.CatagoryList[i].ItemList[j].Price)*Number(catalogueData.CatagoryList[i].ItemList[j].quantity)),
           quantity: catalogueData.CatagoryList[i].ItemList[j].quantity,
         })
       }
@@ -107,6 +113,7 @@ function Cart(props) {
         Name: billFName + billLName,
         Address: billaddress,
         Zip: billzip,
+        OrderPrice: String(TotalPrice)
       },
       ItemList: itemList,
     }
@@ -129,6 +136,8 @@ function Cart(props) {
                   alt={ItemList.Name}
                 />
                 <p>{ItemList.Name}</p>
+                <p>{"RS "+String(Number(ItemList.Price)*Number(ItemList.quantity))}</p>
+                {totalPriceHandler(ItemList.Price,ItemList.quantity)}
                 <p>Quantity : {ItemList.quantity}</p>
               </Link>
             }
@@ -283,7 +292,7 @@ function Cart(props) {
                     <div class="d-block my-3">
                       <div class="custom-control custom-radio">
                         <label class="custom-control-label" for="credit">
-                          Cash on Delivery
+                          Cash on Delivery , Total Price : Rs {TotalPrice}
                         </label>
                       </div>
                     </div>

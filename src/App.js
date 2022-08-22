@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Nevbar title={'Makeup Store'} nevBarProps={nevBarProps}></Nevbar>
+      <Nevbar title={'Makeup Store'} nevBarProps={nevBarProps} setNevBarProps={setNevBarProps}></Nevbar>
 
         <Routes>
          
