@@ -1,45 +1,44 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import axios from 'axios'
 
 function AdminUserControl() {
-  const [userData,setUserData] = useState({
-    Users: [
-      {
-        Name: 'ahmed',
-        Email: 'ahmed@gmail.com',
-        Role: 'user',
-      },
-      {
-        Name: 'ahmed1',
-        Email: 'ahmed1@gmail.com',
-        Role: 'user',
-      },
-      {
-        Name: 'ahmed2',
-        Email: 'ahmed2@gmail.com',
-        Role: 'user',
-      },
-      {
-        Name: 'ahmed4',
-        Email: 'ahmed4@gmail.com',
-        Role: 'admin',
-      },
-    ],
-  })
+  const [userData,setUserData] = useState({})
 
-  const SelectOnChange=(Email,event)=>{
-    let temp=userData
-    for(let i= 0; i<temp.Users.length; i++){
-      if(temp.Users[i].Email === Email){
-        temp.Users[i].Role="admin"
-      }
-    }
-    setUserData(temp)
-    console.log(userData)
+  let getUserData = () => {
+    axios
+      .post(`http://localhost:5000/api/auth/ViewUsers`, {})
+      .then((response) => {
+        setUserData({Users:response.data})
+      })
+      .catch((err) => console.log(err))
   }
 
+  useEffect(() => {
+    getUserData()
+  }, [])
+
+
+  const SelectOnChange=(Email,event)=>{
+    axios
+      .post(`http://localhost:5000/api/auth/UpdateUsersRole`, {Email:Email,Role:event.target.value})
+      .then((response) => {
+      })
+      .catch((err) => console.log(err))
+  }
+
+  const deleteHandler=(Email)=>{
+    axios
+      .post(`http://localhost:5000/api/auth/DeleteUsers`, {Email:Email})
+      .then((response) => {
+      })
+      .catch((err) => console.log(err))
+      getUserData()
+  }
+  
+
   let UserBox = (userData) => {
-    let List = userData.Users.map(function (Users) {
+    let List = userData.Users?.map(function (Users) {
     return (
       <>
         <div className="container">
@@ -52,9 +51,9 @@ function AdminUserControl() {
             </div>
             <div className="col-sm" style={{ border: '2px solid black' }}>
               <div>
-                <select className="form-select" onChange={() =>SelectOnChange(Users.Email)}>
+                <select className="form-select" onChange={(e) =>SelectOnChange(Users.Email, e)}>
                   <option selected value={Users.Role}>{Users.Role}</option>
-                  {userData.Users.Role == 'admin' ? (
+                  {Users.Role === 'admin' ? (
                     <option value="user">user</option>
                   ) : (
                     <option value="admin">admin</option>
@@ -64,7 +63,7 @@ function AdminUserControl() {
             </div>
             <div className="col-sm" style={{ border: '2px solid black' }}>
             <div class="d-grid gap-2">
-            <button type="button" class="btn btn-outline-danger">Remove User</button></div>
+            <button type="button" class="btn btn-outline-danger" onClick={() =>deleteHandler(Users.Email)}>Remove User</button></div>
             </div>
           </div>
         </div>
@@ -74,6 +73,7 @@ function AdminUserControl() {
   return List
   }
 
+  
   return (
     <div className="CataloguePage">
       <header>
