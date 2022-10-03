@@ -16,9 +16,9 @@ import AdminCalalogeControl from './Pages/AdminCalalogeControl';
 import AdminOrderControl from './Pages/AdminOrderControl';
 function App() {
   const [nevBarProps,setNevBarProps]=useState({
-    Name: "ahmed",
-    Role: "admin",
-    Email:"ahmed116046@gmail.com"
+    Name: "",
+    Role: "unSigned",
+    Email:""
   })
   return (
     <div className="App">
